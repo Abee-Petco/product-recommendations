@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/PetToyCo/ProductRecommendations#readme",
   "dependencies": {
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "express": "^4.17.1",
     "mongoose": "^5.9.22",
@@ -44,16 +45,15 @@
     "redux": "^4.0.5",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"
-  }
+  },
   "pre-commit": [
-      "lint"
+    "lint"
+  ],
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>__tests__/setup/setupEnzyme.js",
+    "testPathIgnorePatterns": [
+      "<rootDir>/__tests__/setup/"
     ],
-    "jest": {
-      "setupTestFrameworkScriptFile": "<rootDir>__tests__/setup/setupEnzyme.js",
-      "testPathIgnorePatterns": [
-        "<rootDir>/__tests__/setup/"
-      ],
-      "testEnvironment": "jsdom"
-    }
+    "testEnvironment": "jsdom"
   }
 }
