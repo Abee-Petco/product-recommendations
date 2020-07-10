@@ -10,6 +10,38 @@ describe('The seed.js script correctly', () => {
     expect(allPetRP.length).toEqual(100);
   });
 
+  describe('generates an itemId for every position in the recommendedProducts key, for every object', () => {
+    test('in allCustomerRP, that isn\'t equal to the itemId key', () => {
+      allCustomerRP.forEach((object) => {
+        const { itemId, recommendedProducts } = object;
+
+        recommendedProducts.forEach((recommendedItemId) => {
+          expect(recommendedItemId).toEqual(expect.not.stringMatching(itemId));
+        });
+      });
+    });
+
+    test('in allTreatRP, that isn\'t equal to the itemId key', () => {
+      allTreatRP.forEach((object) => {
+        const { itemId, recommendedProducts } = object;
+
+        recommendedProducts.forEach((recommendedItemId) => {
+          expect(recommendedItemId).toEqual(expect.not.stringMatching(itemId));
+        });
+      });
+    });
+
+    test('in allPetRP, that isn\'t equal to the itemId key', () => {
+      allPetRP.forEach((object) => {
+        const { itemId, recommendedProducts } = object;
+
+        recommendedProducts.forEach((recommendedItemId) => {
+          expect(recommendedItemId).toEqual(expect.not.stringMatching(itemId));
+        });
+      });
+    });
+  });
+
   describe('generates an itemId that is within the minimumId - maximumId range', () => {
     test('for every itemId key in every allCustomerRP object', () => {
       allCustomerRP.forEach((object) => {

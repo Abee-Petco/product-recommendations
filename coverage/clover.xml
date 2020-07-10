@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1594393643324" clover="3.2.0">
-  <project timestamp="1594393643324" name="All files">
+<coverage generated="1594396018229" clover="3.2.0">
+  <project timestamp="1594396018229" name="All files">
     <metrics statements="31" coveredstatements="31" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2" elements="35" coveredelements="35" complexity="0" loc="31" ncloc="31" packages="1" files="1" classes="1"/>
     <file name="seed.js" path="/Users/nzabalza/Immersive/Sprints/FEC/ProductRecommendations/db/seed.js">
       <metrics statements="31" coveredstatements="31" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
@@ -10,9 +10,9 @@
       <line num="5" count="1" type="stmt"/>
       <line num="6" count="1" type="stmt"/>
       <line num="8" count="1" type="stmt"/>
-      <line num="9" count="1498" type="stmt"/>
-      <line num="11" count="1498" type="cond" truecount="2" falsecount="0"/>
-      <line num="12" count="13" type="stmt"/>
+      <line num="9" count="1499" type="stmt"/>
+      <line num="11" count="1499" type="cond" truecount="2" falsecount="0"/>
+      <line num="12" count="14" type="stmt"/>
       <line num="15" count="1485" type="stmt"/>
       <line num="18" count="1" type="stmt"/>
       <line num="19" count="1" type="stmt"/>

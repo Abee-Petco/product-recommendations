@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "testSeed": "jest __tests__/seed/ --coverage",
+    "seedDb": "node db/seedDatabase.js",
     "lint": "eslint . --ext .jsx,.js"
   },
   "repository": {
