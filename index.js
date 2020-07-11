@@ -8,7 +8,15 @@ const server = express();
 
 server.use(morgan('dev'));
 server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3004');
+  const { referer } = req.headers;
+  if (referer) {
+    if (referer.includes('http://127.0.0.1:3000')) {
+      res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3000');
+    } else if (referer.includes('http://localhost')) {
+      res.header('Access-Control-Allow-Origin', 'http://localhost');
+    }
+  }
+
   next();
 });
 server.use(serveStatic('./client/public'));
