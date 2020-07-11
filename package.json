@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "testSeed": "jest __tests__/seed/ --coverage",
+    "testServer": "jest __tests__/server --coverage",
     "seedDb": "node db/seedDatabase.js",
+    "server": "node index.js",
     "lint": "eslint . --ext .jsx,.js"
   },
   "repository": {
@@ -20,6 +22,7 @@
   },
   "homepage": "https://github.com/PetToyCo/ProductRecommendations#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "express": "^4.17.1",
@@ -32,7 +35,6 @@
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
-    "axios": "^0.19.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^7.4.0",
