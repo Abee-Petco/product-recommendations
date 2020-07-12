@@ -8,14 +8,20 @@ const ReviewStars = function(props) {
 
   const stars = [];
 
+  const starStyle = {
+    margin: '0 1px',
+    width: '12px',
+    height: '12px',
+  };
+
   while (numberOfBlackStars > 0) {
-    stars.push(<img src='http://127.0.0.1:3004/blackStar.png' />);
+    stars.push(<img style={starStyle} src='http://127.0.0.1:3004/blackStar.png' />);
     count--;
     numberOfBlackStars--;
   }
 
   while (count > 0) {
-    stars.push(<img src='http://127.0.0.1:3004/grayStar.png' />);
+    stars.push(<img style={starStyle} src='http://127.0.0.1:3004/grayStar.png' />);
     count--;
   }
 

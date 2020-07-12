@@ -43,26 +43,41 @@ class ProductRecommendationsModule extends React.Component {
     } = this.props;
 
     let listOfProductRecommendations;
+    let submoduleTitle;
 
     if (submodule === 'customer') {
       listOfProductRecommendations = customer;
+      submoduleTitle = 'Customers Also Viewed';
     }
 
     if (submodule === 'treat') {
       listOfProductRecommendations = treat;
+      submoduleTitle = 'More Ways To Treat Your Pet';
     }
 
     if (submodule === 'pet') {
       listOfProductRecommendations = pet;
+      submoduleTitle = 'Your Pet Might Also Like';
     }
 
     return (
-      <div id={`recommendation-submodule-${submodule}`} style={{ display: 'flex' }}>
-        <IndividualProductRecommendation product={listOfProductRecommendations[0]} />
-        <IndividualProductRecommendation product={listOfProductRecommendations[1]} />
-        <IndividualProductRecommendation product={listOfProductRecommendations[2]} />
-        <IndividualProductRecommendation product={listOfProductRecommendations[3]} />
-        <IndividualProductRecommendation product={listOfProductRecommendations[4]} />
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div
+          style={{
+            fontSize: '24px',
+            fontFamily: '"Arial", "sans-serif"',
+            fontWeight: 700,
+            lineHeight: '48px',
+            color: 'black',
+          }}
+        >{submoduleTitle}</div>
+        <div id={`recommendation-submodule-${submodule}`} style={{ display: 'flex' }}>
+          <IndividualProductRecommendation product={listOfProductRecommendations[0]} />
+          <IndividualProductRecommendation product={listOfProductRecommendations[1]} />
+          <IndividualProductRecommendation product={listOfProductRecommendations[2]} />
+          <IndividualProductRecommendation product={listOfProductRecommendations[3]} />
+          <IndividualProductRecommendation product={listOfProductRecommendations[4]} />
+        </div>
       </div>
     );
   }

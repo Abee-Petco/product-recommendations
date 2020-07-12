@@ -13,7 +13,7 @@
 3. >npm install
 4. If you do not already have the database seeded with mock data, follow the steps in "Seeding Database" below, or if you want to reseed.
 5. Start the server with >npm run server
-6. Since the data returned by the server will depend on the data actually in your local instances for each service, it is recommended to comment out 165 - 184 in __tests__/server/server.test.js before proceeding to step 7. This test passes for me and I went through all data to manually inspect if data did match. If you want to check for yourself that server sends back correct data, in correct order; the hardcoded order is:
+6. Since the data returned by the server will depend on the data actually in your local instances for each service, it is recommended to comment out 180 - 199 in __tests__/server/server.test.js before proceeding to step 7. This test passes for me and I went through all data to manually inspect if data did match. If you want to check for yourself that server sends back correct data, in correct order; the hardcoded order is:
 {
     customer: [101, 102, 103, 104, 105],
     treat: [120, 135, 150, 155, 170],
