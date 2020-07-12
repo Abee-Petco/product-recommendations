@@ -20,7 +20,7 @@ const expectedDataForItem100 = {
     },
     {
       'image': 'https://images.unsplash.com/photo-1570824103960-1a04c7a170ec?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=54&fit=max&ixid=eyJhcHBfaWQiOjE0MzcyOX0',
-      'title': 'Bird Watcher Bird Cage Mirror, 4\' L X 2.5\' W',
+      'title': 'Bird Watcher Bird Cage Mirror, 4\" L X 2.5\" W',
       'brand': 'Bird Watcher',
       'reviewAverage': '3.6',
       'numberOfReviews': 17,
@@ -180,6 +180,15 @@ describe('For the server endpoint', () => {
               }
             }
           }
+        });
+    });
+
+    test('returns a 200 when the itemId is above 100', () => {
+      return axios.get('http://127.0.0.1:3004/productRecommendations/100')
+        .then((response) => {
+          const { status } = response;
+
+          expect(status).toEqual(200);
         });
     });
   });
