@@ -34,15 +34,15 @@ Each "recommendation object" should have the form:
 },
 
 7. Test the server with >npm run testServer
-9. At this point, service is ready for use by proxy. See "Proxy Integration Setup" below for more details
-8. To test the service in development mode, you wll first have to make changes to client/src/service.jsx. You will have comment out the lines between these two comments:
+8. At this point, service is ready for use by proxy. See "Proxy Integration Setup" below for more details
+9. To test the service in development mode, you wll first have to make changes to client/src/service.jsx. You will have comment out the lines between these two comments:
   - start of service as proxy service
   - end of service as proxy service
   And then uncomment the lines between these two comments:
   - start of service as standalone
   - end of service as standalone
-9. Once step 8 is complete, run >npm run test
-10. At this point, you can also see the service running as a standalone by visiting http://127.0.0.1:3004 in a browser
+10. Once step 8 is complete, run >npm run test
+11. At this point, you can also see the service running as a standalone by visiting http://127.0.0.1:3004 in a browser
 
 ## Seeding Database
 1. Still in project's root directory, in terminal >npm run testSeed
