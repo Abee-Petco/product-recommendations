@@ -28,8 +28,8 @@ class IndividualProductRecommendation extends React.Component {
       description = `${brand} ${title}`;
     }
 
-    if (description.length > 50) {
-      description = description.substring(0, 50);
+    if (description.length >= 50) {
+      description = description.substring(0, 46);
       description = `${description}...`;
     }
 
@@ -38,6 +38,7 @@ class IndividualProductRecommendation extends React.Component {
 
     const descriptionDisplay = [
       <div
+        id={`PR-description-${itemId}`}
         style={{
           fontSize: '13px',
           color: 'rgb(51, 51, 51)',
@@ -50,14 +51,15 @@ class IndividualProductRecommendation extends React.Component {
           margin: '10px 0 8px 0',
           cursor: 'pointer',
         }}
-      ><strong>{brandDisplay}</strong>{titleDisplay}</div>,
+      ><strong id={`PR-brand-${itemId}`}>{brandDisplay}</strong>{titleDisplay}</div>,
     ];
 
-    const numberOfReviewsDisplay = [<strong>{`(${numberOfReviews})`}</strong>];
-    const priceDisplay = [<strong>{`${currency}${price}`}</strong>];
+    const numberOfReviewsDisplay = [<strong id={`PR-number-reviews-${itemId}`}>{`(${numberOfReviews})`}</strong>];
+    const priceDisplay = [<strong id={`PR-price-${itemId}`}>{`${currency}${price}`}</strong>];
 
     return (
       <div
+        className='PR-individual-product-recommendation'
         style={{
           display: 'flex',
           flexDirection: 'column',
@@ -71,8 +73,9 @@ class IndividualProductRecommendation extends React.Component {
           boxShadow: '0px 2px 5px 0px rgba(0, 0, 0, 0.1)',
         }}
       >
-        <a href={`http://127.0.0.1:3000/product?itemId=${itemId}`} style={{ display: 'flex', flexDirection: 'column', textDecoration: 'none' }}>
+        <a id={`PR-link-${itemId}`} href={`http://127.0.0.1:3000/product?itemId=${itemId}`} style={{ display: 'flex', flexDirection: 'column', textDecoration: 'none' }}>
           <img
+            id={`PR-image-${itemId}`}
             style={{
               width: '100px',
               height: '100px',

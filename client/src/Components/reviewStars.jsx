@@ -15,13 +15,13 @@ const ReviewStars = function(props) {
   };
 
   while (numberOfBlackStars > 0) {
-    stars.push(<img style={starStyle} src='http://127.0.0.1:3004/blackStar.png' />);
+    stars.push(<img className='PR-black-stars' style={starStyle} src='http://127.0.0.1:3004/blackStar.png' />);
     count--;
     numberOfBlackStars--;
   }
 
   while (count > 0) {
-    stars.push(<img style={starStyle} src='http://127.0.0.1:3004/grayStar.png' />);
+    stars.push(<img className='PR-gray-stars' style={starStyle} src='http://127.0.0.1:3004/grayStar.png' />);
     count--;
   }
 

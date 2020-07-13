@@ -20,6 +20,10 @@ class ProductRecommendationsModule extends React.Component {
     } = this.props;
 
     if (submodule === 'pet' && pet.length === 0) {
+      //When working on service, uncomment this axios call and comment-out the axios
+      // call just below. Make sure to switch back just before pushing up to repo.
+      // Just make sure to run webpack again so bundle is correct (In repo's cd, run >npm run build)
+      // start of service as standalone
       axios.get('http://127.0.0.1:3004/productRecommendations/100')
         .then((response) => {
           const { customer, treat, pet } = response.data;
@@ -31,6 +35,32 @@ class ProductRecommendationsModule extends React.Component {
         .catch((err) => {
           console.log(err);
         });
+      //end of service as standalone
+
+      //start of service as proxy service
+      // const { search } = window.location;
+      // const searchSplit = search.split('&');
+      // let splitItemID;
+
+      // for (let i = 0; i < searchSplit.length; i++) {
+      //   if (searchSplit[i].includes('itemID')) {
+      //     splitItemID = searchSplit[i].split('=');
+      //     break;
+      //   }
+      // }
+
+      // axios.get(`http://127.0.0.1:3001/reviews/${splitItemID[1]}`)
+      //   .then((response) => {
+      //     const { customer, treat, pet } = response.data;
+
+      //     dispatchUpdateCustomer(customer);
+      //     dispatchUpdateTreat(treat);
+      //     dispatchUpdatePet(pet);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
+      //end of service as proxy service
     }
   }
 
@@ -63,6 +93,7 @@ class ProductRecommendationsModule extends React.Component {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <div
+          className='PR-submodule'
           style={{
             fontSize: '24px',
             fontFamily: '"Arial", "sans-serif"',
