@@ -77,6 +77,7 @@ server.get('/productRecommendations/:itemId', (req, res) => {
             const itemSpecificCalls = innerCalls[j];
             const recommendationObject = {};
 
+            recommendationObject.itemId = recommendations[key][j];
             itemSpecificCalls[0].then((response) => {
               const { data } = response;
 

@@ -4,11 +4,12 @@
   "description": "Product Recommendations service for PetToyCo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest __tests__/components/ --coverage --silent",
     "testSeed": "jest __tests__/seed/ --coverage",
     "testServer": "jest __tests__/server",
     "seedDb": "node db/seedDatabase.js",
     "server": "node index.js",
+    "build": "webpack -D",
     "lint": "eslint . --ext .jsx,.js"
   },
   "repository": {
@@ -43,6 +44,7 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.3",
     "jest": "^26.1.0",
+    "nock": "^13.0.2",
     "pre-commit": "^1.2.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
