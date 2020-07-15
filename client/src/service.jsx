@@ -49,7 +49,7 @@ class ProductRecommendationsModule extends React.Component {
         }
       }
 
-      axios.get(`http://127.0.0.1:3001/reviews/${splitItemID[1]}`)
+      axios.get(`http://127.0.0.1:3004/productRecommendations/${splitItemID[1]}`)
         .then((response) => {
           const { customer, treat, pet } = response.data;
 
