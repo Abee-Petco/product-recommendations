@@ -5,9 +5,9 @@ const minimumId = 100;
 
 describe('The seed.js script correctly', () => {
   test('generates 100 records for every subservice', () => {
-    expect(allCustomerRP.length).toEqual(100);
-    expect(allTreatRP.length).toEqual(100);
-    expect(allPetRP.length).toEqual(100);
+    expect(allCustomerRP.length).toEqual(maximumId - minimumId + 1);
+    expect(allTreatRP.length).toEqual(maximumId - minimumId + 1);
+    expect(allPetRP.length).toEqual(maximumId - minimumId + 1);
   });
 
   describe('generates an itemId for every position in the recommendedProducts key, for every object', () => {
