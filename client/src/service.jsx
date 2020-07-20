@@ -2,14 +2,12 @@ import updateCustomer from './ReduxComponents/actions/updateCustomer.js';
 import updateTreat from './ReduxComponents/actions/updateTreat.js';
 import updatePet from './ReduxComponents/actions/updatePet.js';
 import IndividualProductRecommendation from './Components/individualProductRecommendation.jsx';
+import environmentalVariables from './environmentalVariables.js';
 
+const { IP_ADDRESS } = environmentalVariables;
 const { connect } = ReactRedux;
 
 class ProductRecommendationsModule extends React.Component {
-  // constructor() {
-  //   super();
-  // }
-
   componentDidMount() {
     const {
       submodule,
@@ -20,36 +18,24 @@ class ProductRecommendationsModule extends React.Component {
     } = this.props;
 
     if (submodule === 'pet' && pet.length === 0) {
-      //When working on service, uncomment this axios call and comment-out the axios
-      // call just below. Make sure to switch back just before pushing up to repo.
-      // Just make sure to run webpack again so bundle is correct (In repo's cd, run >npm run build)
-      // start of service as standalone
-      // axios.get('http://127.0.0.1:3004/productRecommendations/100')
-      //   .then((response) => {
-      //     const { customer, treat, pet } = response.data;
+      let itemID = '100';
 
-      //     dispatchUpdateCustomer(customer);
-      //     dispatchUpdateTreat(treat);
-      //     dispatchUpdatePet(pet);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
-      //end of service as standalone
-
-      //start of service as proxy service
       const { search } = window.location;
-      const searchSplit = search.split('&');
-      let splitItemID;
 
-      for (let i = 0; i < searchSplit.length; i++) {
-        if (searchSplit[i].includes('itemID')) {
-          splitItemID = searchSplit[i].split('=');
-          break;
+      if (search !== '') {
+        const searchSplit = search.split('&');
+        let splitItemID;
+
+        for (let i = 0; i < searchSplit.length; i++) {
+          if (searchSplit[i].includes('itemID')) {
+            splitItemID = searchSplit[i].split('=');
+            break;
+          }
         }
+        itemID = splitItemID[1];
       }
 
-      axios.get(`http://127.0.0.1:3004/productRecommendations/${splitItemID[1]}`)
+      axios.get(`http://${IP_ADDRESS}:3004/productRecommendations/${itemID}`)
         .then((response) => {
           const { customer, treat, pet } = response.data;
 
@@ -60,7 +46,6 @@ class ProductRecommendationsModule extends React.Component {
         .catch((err) => {
           console.log(err);
         });
-      //end of service as proxy service
     }
   }
 

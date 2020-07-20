@@ -57,6 +57,12 @@ class IndividualProductRecommendation extends React.Component {
     const numberOfReviewsDisplay = [<strong id={`PR-number-reviews-${itemId}`}>{`(${numberOfReviews})`}</strong>];
     const priceDisplay = [<strong id={`PR-price-${itemId}`}>{`${currency}${price}`}</strong>];
 
+    let { hostname } = window.location;
+
+    if (hostname === 'localhost') {
+      hostname = '127.0.0.1';
+    }
+
     return (
       <div
         className='PR-individual-product-recommendation'
@@ -73,7 +79,7 @@ class IndividualProductRecommendation extends React.Component {
           boxShadow: '0px 2px 5px 0px rgba(0, 0, 0, 0.1)',
         }}
       >
-        <a id={`PR-link-${itemId}`} href={`http://127.0.0.1:3000/product?itemID=${itemId}`} style={{ display: 'flex', flexDirection: 'column', textDecoration: 'none' }}>
+        <a id={`PR-link-${itemId}`} href={`http://${hostname}:3000/product?itemID=${itemId}`} style={{ display: 'flex', flexDirection: 'column', textDecoration: 'none' }}>
           <img
             id={`PR-image-${itemId}`}
             style={{

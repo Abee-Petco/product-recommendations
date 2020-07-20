@@ -30,7 +30,7 @@ describe('The IndividualProductRecommendation component', () => {
     const component8text = targetComponent8.text();
 
     expect(targetComponent1).toHaveLength(1);
-    expect(href).toEqual('http://127.0.0.1:3000/product?itemId=101');
+    expect(href).toEqual('http://127.0.0.1:3000/product?itemID=101');
     expect(targetComponent2).toHaveLength(1);
     expect(component3text).toEqual('BestFriends Dog Bone');
     expect(component4text).toEqual('BestFriends');
@@ -60,7 +60,7 @@ describe('The IndividualProductRecommendation component', () => {
     const component8text = targetComponent8.text();
 
     expect(targetComponent1).toHaveLength(1);
-    expect(href).toEqual('http://127.0.0.1:3000/product?itemId=150');
+    expect(href).toEqual('http://127.0.0.1:3000/product?itemID=150');
     expect(targetComponent2).toHaveLength(1);
     expect(component3text).toEqual('Bechtelar, Schaefer and Casper Ergonomic Plast...');
     expect(component4text).toEqual('Bechtelar, Schaefer and Casper');

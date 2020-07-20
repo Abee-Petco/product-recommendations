@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const serveStatic = require('serve-static');
 const axios = require('axios');
 const { retrieveRecommendations } = require('./db/database.js');
+const { IP_ADDRESS, IP_ADDRESS_E, IP_ADDRESS_K } = require('./db/environmentalVariables.js');
 
 const server = express();
 
@@ -10,8 +11,8 @@ server.use(morgan('dev'));
 server.use((req, res, next) => {
   const { referer } = req.headers;
   if (referer) {
-    if (referer.includes('http://127.0.0.1:3000')) {
-      res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3000');
+    if (referer.includes(`http://${IP_ADDRESS}:3000`)) {
+      res.header('Access-Control-Allow-Origin', `http://${IP_ADDRESS}:3000`);
     } else if (referer.includes('http://localhost')) {
       res.header('Access-Control-Allow-Origin', 'http://localhost');
     }
@@ -43,10 +44,10 @@ server.get('/productRecommendations/:itemId', (req, res) => {
             const innerArray = allCalls[i];
             const recommendedItemId = productRecommendations[i];
 
-            innerArray.push(axios.get(`http://127.0.0.1:3003/itemImages/${recommendedItemId}/mainImage`));
-            innerArray.push(axios.get(`http://127.0.0.1:3002/itemInformation/${recommendedItemId}`));
-            innerArray.push(axios.get(`http://127.0.0.1:3001/averageReviews/${recommendedItemId}`));
-            innerArray.push(axios.get(`http://127.0.0.1:3005/itemPrice/${recommendedItemId}`));
+            innerArray.push(axios.get(`http://${IP_ADDRESS_K}:3003/itemImages/${recommendedItemId}/mainImage`));
+            innerArray.push(axios.get(`http://${IP_ADDRESS_E}:3002/itemInformation/${recommendedItemId}`));
+            innerArray.push(axios.get(`http://${IP_ADDRESS}:3001/averageReviews/${recommendedItemId}`));
+            innerArray.push(axios.get(`http://${IP_ADDRESS_E}:3005/itemPrice/${recommendedItemId}`));
           }
           axiosCalls.push(allCalls);
         }
