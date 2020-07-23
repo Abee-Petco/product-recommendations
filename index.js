@@ -13,6 +13,10 @@ server.use((req, res, next) => {
   if (referer) {
     if (referer.includes(`http://${IP_ADDRESS}:3000`)) {
       res.header('Access-Control-Allow-Origin', `http://${IP_ADDRESS}:3000`);
+    } else if (referer.includes(`http://${IP_ADDRESS_E}:3000`)) {
+      res.header('Access-Control-Allow-Origin', `http://${IP_ADDRESS_E}:3000`);
+    } else if (referer.includes(`http://${IP_ADDRESS_K}:3000`)) {
+      res.header('Access-Control-Allow-Origin', `http://${IP_ADDRESS_K}:3000`);
     } else if (referer.includes('http://localhost')) {
       res.header('Access-Control-Allow-Origin', 'http://localhost');
     }
