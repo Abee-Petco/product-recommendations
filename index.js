@@ -24,6 +24,13 @@ server.use((req, res, next) => {
 
   next();
 });
+
+server.use('*.js', (req, res, next) => {
+  req.url += '.gz';
+  res.header('Content-Encoding', 'gzip');
+  next();
+});
+
 server.use(serveStatic('./client/public'));
 
 server.get('/productRecommendations/:itemId', (req, res) => {
