@@ -45,7 +45,8 @@ To add this service to a proxy, you need to add three <div> tags to the proxy's 
 
 The first and second <div> tags should be added just above the mount point for the description_directions_attributes_ service while the third tag should be added after the mount point for the reviews service
 
-To retrieve the bundle associated with this service: use a script tag or make a GET request to http://127.0.0.1:3004/app.js
+To retrieve the bundle associated with this service: use the script tag
+<script src="http://127.0.0.1:3004/app.js" async></script>
 
 ## Usage as a Deployed Service
 
