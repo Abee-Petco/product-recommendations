@@ -131,4 +131,138 @@ server.get('/productRecommendations/:itemId', (req, res) => {
   }
 });
 
+// server.get('/productRecommendations/:itemId', (req, res) => {
+//   const { itemId } = req.params;
+//   const parsedItemId = Number.parseInt(itemId, 10);
+
+//   if (parsedItemId < 100 || parsedItemId > 199) {
+//     res.status(404).send();
+//   } else {
+//     const recommendations = {};
+//     const axiosCalls = [];
+//     const allItemIds = [];
+//     const recommendationsParsed = {};
+//     const recommendationsResponse = { customer: [], treat: [], pet: [] };
+//     let reviewsData;
+//     let itemInfoData;
+//     let itemImagesData;
+//     let itemPriceData;
+
+//     retrieveRecommendations(itemId, recommendations)
+//       .then(() => {
+
+//         for (const key in recommendations) {
+//           const productRecommendations = recommendations[key];
+//           recommendationsParsed[key] = {};
+//           for (let i = 0; i < productRecommendations.length; i++) {
+//             const recommendedItemId = productRecommendations[i];
+//             allItemIds.push(recommendedItemId);
+//             recommendationsParsed[key][recommendedItemId] = {};
+//           }
+//         }
+
+//         const reqParamater = `array${allItemIds.join(',')}`;
+
+//         axiosCalls.push(axios.get(`http://${IP_ADDRESS}:3001/averageReviews/${reqParamater}`));
+//         // axiosCalls.push(axios.get(`http://${IP_ADDRESS_E}:3002/itemInformation/${reqParamater}`));
+//         // axiosCalls.push(axios.get(`http://${IP_ADDRESS_K}:3003/itemImages/${reqParamater}/mainImage`));
+//         // axiosCalls.push(axios.get(`http://${IP_ADDRESS_E}:3005/itemPrice/${reqParamater}`));
+
+//         return Promise.all(axiosCalls);
+//       })
+//       .then(() => {
+//         axiosCalls[0].then((response) => {
+//           reviewsData = response.data;
+//         });
+
+//         // axiosCalls[1].then((response) => {
+//         //   itemInfoData = response.data;
+//         // });
+
+//         // axiosCalls[2].then((response) => {
+//         //   itemImagesData = response.data;
+//         // });
+
+//         // axiosCalls[3].then((response) => {
+//         //   itemPriceData = response.data;
+//         // });
+//       })
+//       .then(function checkData() {
+//         if (reviewsData) {
+//           for (let i = 0; i < reviewsData.length; i++) {
+//             const { itemId } = reviewsData[i];
+
+//             if (recommendationsParsed.customer[itemId]) {
+//               recommendationsParsed.customer[itemId].reviewAverage = reviewsData[i].reviewAverage;
+//               recommendationsParsed.customer[itemId].numberOfReviews = reviewsData[i].numberOfReviews;
+
+//               // recommendationsParsed.customer[itemId].title = itemInfoData[i].title;
+//               // recommendationsParsed.customer[itemId].brand = itemInfoData[i].primaryBrand;
+
+//               // recommendationsParsed.customer[itemId].image = itemImagesData[i].image;
+
+//               // recommendationsParsed.customer[itemId].price = itemPriceData[i].price;
+//               // recommendationsParsed.customer[itemId].currency = itemPriceData[i].currency;
+
+//               recommendationsParsed.customer[itemId].itemId = itemId;
+
+//               const index = recommendations.customer.indexOf(itemId);
+
+//               recommendationsResponse.customer[index] = recommendationsParsed.customer[itemId];
+//             }
+
+//             if (recommendationsParsed.treat[itemId]) {
+//               recommendationsParsed.treat[itemId].reviewAverage = reviewsData[i].reviewAverage;
+//               recommendationsParsed.treat[itemId].numberOfReviews = reviewsData[i].numberOfReviews;
+
+//               // recommendationsParsed.treat[itemId].title = itemInfoData[i].title;
+//               // recommendationsParsed.treat[itemId].brand = itemInfoData[i].primaryBrand;
+
+//               // recommendationsParsed.treat[itemId].image = itemImagesData[i].image;
+
+//               // recommendationsParsed.treat[itemId].price = itemPriceData[i].price;
+//               // recommendationsParsed.treat[itemId].currency = itemPriceData[i].currency;
+
+//               recommendationsParsed.treat[itemId].itemId = itemId;
+
+//               const index = recommendations.treat.indexOf(itemId);
+
+//               recommendationsResponse.treat[index] = recommendationsParsed.treat[itemId];
+//             }
+
+//             if (recommendationsParsed.pet[itemId]) {
+//               recommendationsParsed.pet[itemId].reviewAverage = reviewsData[i].reviewAverage;
+//               recommendationsParsed.pet[itemId].numberOfReviews = reviewsData[i].numberOfReviews;
+
+//               // recommendationsParsed.pet[itemId].title = itemInfoData[i].title;
+//               // recommendationsParsed.pet[itemId].brand = itemInfoData[i].primaryBrand;
+
+//               // recommendationsParsed.pet[itemId].image = itemImagesData[i].image;
+
+//               // recommendationsParsed.pet[itemId].price = itemPriceData[i].price;
+//               // recommendationsParsed.pet[itemId].currency = itemPriceData[i].currency;
+
+//               recommendationsParsed.pet[itemId].itemId = itemId;
+
+//               const index = recommendations.pet.indexOf(itemId);
+
+//               recommendationsResponse.pet[index] = recommendationsParsed.pet[itemId];
+//             }
+//           }
+//         } else {
+//           return new Promise((resolve) => { resolve() }).then(checkData);
+//         }
+
+//         return;
+//       })
+//       .then(() => {
+//         res.status(200).send(recommendationsResponse);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//         res.status(500).send();
+//       });
+//   }
+// });
+
 server.listen(3004);
