@@ -57,7 +57,7 @@ Semi-automated Deployment Instructions:
 
 2. I Locate the following two files and open them: ./client/src/enviromentalVariables.js and ./db/enviromentalVariables.js
 
- Then comment out the "Service and Development mode environmental variables" and uncomment the "Deployment mode environmental variables". You may also have to update the IP address if the AWS instance you will be deploying this service from was stopped or terminated since the last time you followed these instructions. If so, only update the IP_ADDRESS key with the new IP address as its value. And only for the Deployment mode. Also, if the IP address for IP_ADDRESS_E and/or IP_ADDRESS_K changed, you will have to update the appropriate address 
+ Then comment out the "Service and Development mode environmental variables" and uncomment the "Deployment mode environmental variables". You may also have to update the IP address if the AWS instance you will be deploying this service from was stopped or terminated since the last time you followed these instructions. If so, only update the IP_ADDRESS key with the new IP address as its value. And only for the Deployment mode. Also, if the IP address for IP_ADDRESS_E and/or IP_ADDRESS_K changed, you will have to update the appropriate address
  
  Save all changes
 

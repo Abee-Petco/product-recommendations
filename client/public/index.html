@@ -28,6 +28,8 @@
 
       const url = `http://${N_IP}:3004/app.js`;
 
+      // const url = 'https://dlxdbr1ckg1lj.cloudfront.net/product-recommendations/app.js';
+
       axios.get(url)
         .then((response) => {
           eval(response.data)
