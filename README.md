@@ -33,7 +33,7 @@ Other related Projects that are not fully essential to this service are:
 6. If you plan on running the tests for the server, follow the instructions below in the section titled "Special note on tests" before proceeding to step 7. Step 8 and further is if you want to run tests on the service components.
 7. Test the server with >npm run testServer
 8.  run >npm run test
-9. At this point, you can also see the service running as a standalone by visiting http://127.0.0.1:3004 in a browser
+9. At this point, you can also see the service running as a standalone by visiting http://127.0.0.1:3004/product?itemID=### in a browser, where ### is a number value between 100-199
 
 
 ## Usage with a Proxy Server

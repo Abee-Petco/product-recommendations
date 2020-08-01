@@ -289,4 +289,15 @@ server.get('/productRecommendations/:itemId', (req, res) => {
   }
 });
 
+server.get('/product', (req, res) => {
+  const { itemID } = req.query;
+  const itemIdNumber = Number.parseInt(itemID, 10);
+
+  if (itemIdNumber < 100 || itemIdNumber > 199 || itemIdNumber === undefined) {
+    res.status(404).send('itemID invalid');
+  } else {
+    res.sendFile(`${__dirname}/client/public/index.html`);
+  }
+});
+
 server.listen(3004);
