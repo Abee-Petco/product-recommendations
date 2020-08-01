@@ -10,7 +10,7 @@ const environmentalVariables = {
 // const environmentalVariables = {
 //   IP_ADDRESS: '54.183.137.155',
 //   IP_ADDRESS_E: '52.14.208.55',
-//   IP_ADDRESS_K: '18.224.229.28',
+//   IP_ADDRESS_K: '54.183.137.155',
 //   DATABASE_LOCAL_ADDRESS: 'mongo',
 // };
 
